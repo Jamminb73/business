@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Welcome to Ever Clean</h1>
+      <p class="lead text-muted">It is our passion to make your life more comfortable,
+        so you can worry about the things that really matter.</p>
+      <p>
+        <a href="mailto:jamminb73@gmail.com" class="btn btn-primary my-2">Contact Me!</a>
+
+      </p>
+
+    <!--  <img class="img-fluid" src="{% static 'ben.jpg' %}" height=300 width=400 /> -->
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+
+        {% for job in jobs.all %}
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ job.image.url }}" >
+            <div class="card-body">
+              <p class="card-text">{{ job.summary }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
